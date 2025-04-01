@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2sjk2s75n0pd"
+path="res://.godot/imported/Explosion.wav-1597575430331f796a0f4c829c420d29.sample"
+
+[deps]
+
+source_file="res://assets/Nova pasta/Explosion.wav"
+dest_files=["res://.godot/imported/Explosion.wav-1597575430331f796a0f4c829c420d29.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

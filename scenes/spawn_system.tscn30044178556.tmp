@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://uoy7ael57g7e"]
+
+[ext_resource type="Script" uid="uid://b5m3ip5l5q53k" path="res://scripts/SpawnSystem.gd" id="1_bmpfp"]
+[ext_resource type="PackedScene" uid="uid://dlbcoakqcnut4" path="res://scenes/item_pool.tscn" id="2_4510y"]
+[ext_resource type="PackedScene" uid="uid://ds6qsv7vg564l" path="res://scenes/asteroid.tscn" id="3_4510y"]
+
+[node name="SpawnSystem" type="Node2D"]
+script = ExtResource("1_bmpfp")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ItemPool" parent="." instance=ExtResource("2_4510y")]
+ITEM = ExtResource("3_4510y")
+MAX_ITEMS = 80
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

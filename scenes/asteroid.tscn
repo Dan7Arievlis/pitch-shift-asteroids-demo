@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds6qsv7vg564l"]
+
+[ext_resource type="Script" uid="uid://ddl0osesok78y" path="res://scripts/Asteroid.gd" id="1_6mo6b"]
+[ext_resource type="Resource" uid="uid://cm5oa1ldob2ae" path="res://resources/big_asteroid.tres" id="2_pnq5b"]
+[ext_resource type="Texture2D" uid="uid://cf3gnd4c57qdm" path="res://assets/img/asteroids-2x.png" id="2_t4se3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnq5b"]
+radius = 18.0
+
+[node name="Asteroid" type="RigidBody2D" groups=["Asteroid"]]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_6mo6b")
+asteroid_resource = ExtResource("2_pnq5b")
+max_ttl = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t4se3")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pnq5b")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_pnq5b")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-100, -100, 200, 200)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

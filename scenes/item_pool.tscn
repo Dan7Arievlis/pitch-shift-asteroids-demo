@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlbcoakqcnut4"]
+
+[ext_resource type="Script" uid="uid://e3t2venh10wy" path="res://scripts/ItemPool.gd" id="1_t0g30"]
+[ext_resource type="PackedScene" uid="uid://dovhvdihq4snd" path="res://scenes/bullet.tscn" id="2_hpith"]
+
+[node name="ItemPool" type="Node"]
+script = ExtResource("1_t0g30")
+ITEM = ExtResource("2_hpith")
