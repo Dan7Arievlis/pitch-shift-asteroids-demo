@@ -11,5 +11,5 @@ script = ExtResource("1_m6rle")
 sprite_position = Rect2(0, 256, 64, 64)
 collision_shape = SubResource("CircleShape2D_m6rle")
 min_speed = 50.0
-max_speed = 100.0
+max_speed = 70.0
 metadata/_custom_type_script = "uid://ujxo712wo1r2"

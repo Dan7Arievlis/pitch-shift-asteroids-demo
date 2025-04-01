@@ -9,6 +9,10 @@ func _ready() -> void:
 	for item in item_pool.items.keys():
 		item.connect("asteroid_destroyed", _on_asteroid_destroyed)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_SHIFT):
+		spawn()
+
 
 func spawn():
 	var point : Vector2 = Vector2.ZERO

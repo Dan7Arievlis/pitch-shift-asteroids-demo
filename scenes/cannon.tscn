@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv1au20rytew1"]
+[gd_scene load_steps=5 format=3 uid="uid://dv1au20rytew1"]
 
 [ext_resource type="Script" uid="uid://dfici2nsm3jnt" path="res://scripts/Cannon.gd" id="1_xuqfy"]
 [ext_resource type="PackedScene" uid="uid://dlbcoakqcnut4" path="res://scenes/item_pool.tscn" id="2_pxhkx"]
+[ext_resource type="AudioStream" uid="uid://bd7d1oxvh866h" path="res://assets/audio/sfx/Laser_Shoot.wav" id="3_jfr8q"]
+[ext_resource type="Script" uid="uid://c7ot5ygorlccq" path="res://scenes/PitchShift.gd" id="4_0285d"]
 
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_xuqfy")
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true
 autostart = true
 
 [node name="ItemPool" parent="." instance=ExtResource("2_pxhkx")]
 MAX_ITEMS = 40
+
+[node name="LaserShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jfr8q")
+bus = &"SFX"
+script = ExtResource("4_0285d")

@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4hohrnha10cj"]
+[gd_scene load_steps=3 format=3 uid="uid://b4hohrnha10cj"]
 
 [ext_resource type="PackedScene" uid="uid://bulywpvqoa6jd" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://uoy7ael57g7e" path="res://scenes/spawn_system.tscn" id="2_rwgxs"]
-
-[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_rwgxs"]
-segments = PackedVector2Array(574, -326, -578, -326, -578, 322, 574, 322, 574, -326, 574, 322, -578, -326, -578, 322)
 
 [node name="World" type="Node2D"]
 
@@ -12,9 +9,7 @@ segments = PackedVector2Array(574, -326, -578, -326, -578, 322, 574, 322, 574, -
 position = Vector2(577, 327)
 rotation = -1.5708
 collision_mask = 10
-angular_speed = 3.5
 thrust_speed = 200.0
-angular_accel = 1.0
 accel = 2.0
 
 [node name="SpawnSystem" parent="." instance=ExtResource("2_rwgxs")]
@@ -23,6 +18,7 @@ accel = 2.0
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(578, 326)
-shape = SubResource("ConcavePolygonShape2D_rwgxs")
+build_mode = 1
+polygon = PackedVector2Array(574, -326, -578, -326, -578, 322, 574, 322)

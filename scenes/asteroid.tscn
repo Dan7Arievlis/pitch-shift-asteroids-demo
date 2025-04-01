@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds6qsv7vg564l"]
+[gd_scene load_steps=7 format=3 uid="uid://ds6qsv7vg564l"]
 
 [ext_resource type="Script" uid="uid://ddl0osesok78y" path="res://scripts/Asteroid.gd" id="1_6mo6b"]
 [ext_resource type="Resource" uid="uid://cm5oa1ldob2ae" path="res://resources/big_asteroid.tres" id="2_pnq5b"]
 [ext_resource type="Texture2D" uid="uid://cf3gnd4c57qdm" path="res://assets/img/asteroids-2x.png" id="2_t4se3"]
+[ext_resource type="AudioStream" uid="uid://c2sjk2s75n0pd" path="res://assets/audio/sfx/Explosion.wav" id="4_pwrvu"]
+[ext_resource type="Script" uid="uid://c7ot5ygorlccq" path="res://scenes/PitchShift.gd" id="5_0jovh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnq5b"]
 radius = 18.0
@@ -32,6 +34,12 @@ shape = SubResource("CircleShape2D_pnq5b")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 rect = Rect2(-100, -100, 200, 200)
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pwrvu")
+volume_db = -10.0
+bus = &"SFX"
+script = ExtResource("5_0jovh")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

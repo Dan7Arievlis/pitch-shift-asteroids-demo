@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var friction : float = 10.0
 
 @onready var cannon: Node2D = %Cannon
+@onready var boost: AudioStreamPlayer2D = $Boost
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var turn : float
@@ -23,7 +24,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		animation_player.play("moving")
 	if event.is_action_released("move_forward"):
 		animation_player.play("idle")
-		
 
 
 func _physics_process(delta: float) -> void:
@@ -46,6 +46,13 @@ func _speed_acceleration(speed : float, accel : float, friction : float, delta: 
 			return speed
 	else:
 		return lerp(velocity.length(), 0.0, friction * delta)
+
+
+func loop_boost():
+	AudioPlayer.play(boost)
+
+func stop_boost():
+	AudioPlayer.stop(boost)
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
