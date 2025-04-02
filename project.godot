@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Pitch Shift Asteroids Demo"
+config/name="Audio Manager Asteroids Demo"
 run/main_scene="uid://b4hohrnha10cj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
