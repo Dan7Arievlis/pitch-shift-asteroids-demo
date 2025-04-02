@@ -6,7 +6,6 @@ var sound_effect_dict : Dictionary = {}
 func _ready() -> void:
 	for sound_effect_setting in sound_effect_settings:
 		sound_effect_dict[sound_effect_setting.type] = sound_effect_setting
-	print(sound_effect_dict)
 
 
 func play_2d_audio_at_location(location : Vector2, type : SoundEffectSettings.SOUND_EFFECT_TYPE):
