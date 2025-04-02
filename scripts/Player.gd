@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var friction : float = 10.0
 
 @onready var cannon: Node2D = %Cannon
-@onready var boost: AudioStreamPlayer2D = $Boost
+#@onready var boost: AudioStreamPlayer2D = $Boost
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var turn : float
@@ -49,10 +49,10 @@ func _speed_acceleration(speed : float, accel : float, friction : float, delta: 
 
 
 func loop_boost():
-	AudioPlayer.play(boost)
+	AudioManager.play_audio_at_node(self, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_PLAYER_THRUST)
 
 func stop_boost():
-	AudioPlayer.stop(boost)
+	AudioManager.stop_audio_at_node(self, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_PLAYER_THRUST)
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

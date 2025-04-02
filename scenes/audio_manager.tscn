@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://b87txbg5u3hpc"]
+
+[ext_resource type="Script" uid="uid://u4m80xixsug8" path="res://scripts/AudioManager.gd" id="1_aoitu"]
+[ext_resource type="Script" uid="uid://brd3b5u12pg6j" path="res://scripts/SoundEffectSettings.gd" id="2_njtn3"]
+[ext_resource type="AudioStream" uid="uid://bd7d1oxvh866h" path="res://assets/audio/sfx/Laser_Shoot.wav" id="3_kq7b2"]
+[ext_resource type="AudioStream" uid="uid://c2sjk2s75n0pd" path="res://assets/audio/sfx/Explosion.wav" id="4_02gw7"]
+[ext_resource type="AudioStream" uid="uid://i7wjxuh8jdsm" path="res://assets/audio/sfx/Boost.wav" id="5_ujhup"]
+
+[sub_resource type="Resource" id="Resource_mrh1j"]
+script = ExtResource("2_njtn3")
+limit = 5
+type = 0
+sound_effect = ExtResource("3_kq7b2")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.2
+metadata/_custom_type_script = "uid://brd3b5u12pg6j"
+
+[sub_resource type="Resource" id="Resource_wiaen"]
+script = ExtResource("2_njtn3")
+limit = 10
+type = 1
+sound_effect = ExtResource("4_02gw7")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.3
+metadata/_custom_type_script = "uid://brd3b5u12pg6j"
+
+[sub_resource type="Resource" id="Resource_107af"]
+script = ExtResource("2_njtn3")
+limit = 2
+type = 2
+sound_effect = ExtResource("5_ujhup")
+volume = 8
+pitch_scale = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://brd3b5u12pg6j"
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_aoitu")
+sound_effect_settings = Array[ExtResource("2_njtn3")]([SubResource("Resource_mrh1j"), SubResource("Resource_wiaen"), SubResource("Resource_107af")])
